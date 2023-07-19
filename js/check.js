@@ -1,12 +1,30 @@
 // ------------ incase of calc price depended on chechbox ------------ //
-// var diff_date=1;
-//   $(".changeDate").change(function(){
-//     var selected_date_from=$('input[name=selected_date_from]').val();
-//     var selected_date_to=$('input[name=selected_date_to]').val();
-//     console.log((new Date(selected_date_to) - new Date(selected_date_from)));((new Date(selected_date_to) - new Date(selected_date_from)))
-//     diff_date =  (new Date(selected_date_to) - new Date(selected_date_from)) / (1000 * 60 * 60 * 24) ;
-//     setTimeout(calcPrice(),1000) 
-//   });
+var diff_date=1;
+  $(".changeDate").change(function(){
+    var selected_date_from=$('input[name=selected_date_from]').val();
+    var selected_date_to=$('input[name=selected_date_to]').val();
+    console.log(selected_date_to);
+    if( (selected_date_from != NaN && selected_date_from != "") && (selected_date_to != NaN && selected_date_to != "")){
+      diff_date = daysdifference(selected_date_to, selected_date_from) ;
+      setTimeout(calcPrice(),1000) 
+    }
+  });
+  
+  function daysdifference(firstDate, secondDate){
+    var startDay = new Date(firstDate);
+    var endDay = new Date(secondDate);
+    console.log(startDay);
+    
+    
+    var millisBetween = startDay.getTime() - endDay.getTime();
+    var days = millisBetween / (1000 * 3600 * 24);
+    
+    console.log(days);
+    return Math.round(Math.abs(days));
+}
+
+
+
   var totalPrice = 0
   $("#price").attr('data-target', 0 );
   $("#price").html(0)
