@@ -882,7 +882,12 @@ header .head{
    border: none !important;
    margin-bottom: 1rem;
 }
-
+.fancybox-thumbs__list a:before {
+   border: 6px solid #ffcc00;
+}
+.fancybox-progress {
+   background: var(--main-color);
+}
 .sub-gallery{
    height: 450px;
 }
